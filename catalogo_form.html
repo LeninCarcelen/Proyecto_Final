@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title%}Formulario de Catalogo{% endblock title%}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url "catalogo:index" %}" class="btn btn-secondary">Regresar</a>
+    </form>
+{% endblock content %}

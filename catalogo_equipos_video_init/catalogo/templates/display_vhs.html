@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title%}{{ VHS | capfirst }}{% endblock title %}
+{% block content %}
+    <p>Has elegido el VHS: <strong>{{ VHS | capfirst }}</strong></p>
+    <h3>Detalles del VHS</h3>
+    <ul>
+        <li>Nombre: {{ VHS.name }}</li>
+        <li>Año: {{ VHS.year }}</li>
+        <li>Genero: {{ VHS.gender }}</li>
+        <li>Descripcion: {{ VHS.description }}</li>
+        <li>Precio: {{ VHS.price }}</li>
+        <li>Imagen: {{ VHS.picture }}</li>
+    </ul>
+{% endblock content %}

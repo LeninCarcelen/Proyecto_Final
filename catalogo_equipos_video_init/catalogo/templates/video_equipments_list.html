@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title%}Pagina Inicial{% endblock title%}
+{% block content%}
+    <h3>Equipos de video</h3>
+    {% if VideoEquipement.is_authenticated %}
+        <a href="{% url "catalogo:add_VideoEquipement" %}">añadir Equipo</a>
+    {% endif %}
+    <div class="row">
+    {% for VideoEquipement in VideoEquipements %}
+    <div class="col-sm-4">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title">{{ VideoEquipement | capfirst }}</h5>
+                <p class="card-text">Año {{ VideoEquipement.Year }}</p>
+                <a href="/VideoEquipement/{{VideoEquipement.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+            {% if VideoEquipement.is_authenticated %}
+                <a href="edit_VideoEquipement/{{VideoEquipement.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
+                <a href="delete_VideoEquipement/{{VideoEquipement.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content%}

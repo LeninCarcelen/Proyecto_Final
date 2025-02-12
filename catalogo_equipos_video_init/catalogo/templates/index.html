@@ -1,64 +1,16 @@
 {% extends "base.html" %}
 {% block title%}Pagina Inicial{% endblock title%}
 {% block content%}
-<h3>Pokemones</h3>
 {% if user.is_authenticated %}
-<a href="{% url "catalogo:add_dvd" %}">añadir DVD</a>
-<a href="{% url "catalogo:edit_dvd" %}">editar DVD</a>
 {% endif %}
-<div class="row">
-    
-    {% for DVD in DVDs %}
-    <div class="col-sm-4">
-        <div class="card" style="width: 100%;">
-            <img src="{{ DVD.picture.url }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ DVD | capfirst }}</h5>
-                <p class="card-text">Altura {{ DVD.height }}</p>
-                <p class="card-text">Altura {{ DVD.height }}</p>
-                <p class="card-text">Altura {{ DVD.height }}</p>
-                <a href="DVD/{{DVD.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                {% if user.is_authenticated %}
-                <a href="edit_DVD/{{DVD.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                <a href="delete_DVD/{{DVD.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-    
-    {% for VHS in VHSs %}
-    <div class="col-sm-4">
-        <div class="card" style="width: 100%;">
-            <img src="{{ VHS.picture.url }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ VHS | capfirst }}</h5>
-                <p class="card-text">Altura {{ VHS.height }}</p>
-                <a href="VHS/{{VHS.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                {% if user.is_authenticated %}
-                <a href="edit_VHS/{{VHS.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                <a href="delete_VHS/{{VHS.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    {% endfor %}
 
-    {% for VideoEquipments in Video_Equipments %}
-    <div class="col-sm-4">
-        <div class="card" style="width: 100%;">
-            <img src="{{ VideoEquipments.picture.url }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ VideoEquipments | capfirst }}</h5>
-                <p class="card-text">Altura {{ VideoEquipments.height }}</p>
-                <a href="VideoEquipments/{{VideoEquipments.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                {% if user.is_authenticated %}
-                <a href="edit_VideoEquipments/{{VideoEquipments.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                <a href="delete_VideoEquipments/{{VideoEquipments.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                {% endif %}
-            </div>
-        </div>
+<div class="card" style="width: 18rem;">
+    <img src="{{ dvd.picture.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ dvd | capfirst }}</h5>
+      <p class="card-text">{{ dvd.description }}</p>
+      <a href="dvd/{{DVD.id}}" class="btn btn-primary">Más información</a>
     </div>
-    {% endfor %}
-</div>
+  </div>
+
 {% endblock content%}

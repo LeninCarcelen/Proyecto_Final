@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title%}{{ DVD | capfirst }}{% endblock title%}
+{% block content %}
+    <p>Has elegido el DVD: <strong>{{ DVD | capfirst }}</strong></p>
+    <h3>Detalles del DVD</h3>
+    <ul>
+        <li>Nombre: {{ DVD.name }}</li>
+        <li>Año: {{ DVD.year }}</li>
+        <li>Genero: {{ DVD.gender }}</li>
+        <li>Descripcion: {{ DVD.description }}</li>
+        <li>Precio: {{ DVD.price }}</li>
+        <li>Imagen: {{ DVD.picture }}</li>
+    </ul>
+{% endblock content %}

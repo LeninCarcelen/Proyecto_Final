@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title%}{{ VideoEquipement | capfirst }}{% endblock title %}
+{% block content %}
+    <p>Has elegido el Equipo de Video: <strong>{{ VideoEquipement | capfirst }}</strong></p>
+    <h3>Detalles del Equipo de Video</h3>
+    <ul>
+        <li>Nombre: {{ VideoEquipement.name }}</li>
+        <li>Año: {{ VideoEquipement.year }}</li>
+        <li>Genero: {{ VideoEquipement.gender }}</li>
+        <li>Descripcion: {{ VideoEquipement.description }}</li>
+        <li>Precio: {{ VideoEquipement.price }}</li>
+        <li>Imagen: {{ VideoEquipement.picture }}</li>
+    </ul>
+{% endblock content %}
